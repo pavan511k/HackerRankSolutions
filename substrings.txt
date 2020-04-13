@@ -1,0 +1,47 @@
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        Scanner sc=new Scanner(System.in);
+        ArrayList<Integer> arr=new ArrayList<Integer>();
+        String S=sc.next();
+        String T=sc.next();
+        for(int i=0;i<T.length();i++)
+        {
+            if(T.charAt(i)==S.charAt(0))
+            arr.add(checkString(S,T,i));
+            else
+            i++;
+        }
+        int max=arr.get(0);
+        for(int k:arr)
+        {
+            if(k>max)
+            {
+                max=k;
+            }
+        }
+        System.out.print(max);
+    }
+    static int checkString(String S,String T,int index)
+    {
+        int j=0,count=0;
+        for(int i=index;i<T.length() && j<S.length();i++)
+        {
+            if(S.charAt(j)==(T.charAt(index)))
+            {
+                j++;
+                count++;
+            }
+            else
+            {
+                j++;
+            }
+            
+        }
+        return count;
+    }
+}
+
